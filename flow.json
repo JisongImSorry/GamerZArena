@@ -1,0 +1,40 @@
+{
+  "emulators": {
+    "default": {
+      "port": 3569,
+      "serviceAccount": "emulator-account"
+    }
+  },
+  "contracts": {
+    "FlowTutorialMint": "./FlowTutorialMint.cdc",
+    "FungibleToken": "./FungibleToken.cdc",
+    "MetaDataView": "./MetaDataView.cdc",
+    "NonFungibleToken": "./NonFungibleToken.cdc"
+  },
+  "networks": {
+    "emulator": "127.0.0.1:3569",
+    "mainnet": "access.mainnet.nodes.onflow.org:9000",
+    "sandboxnet": "access.sandboxnet.nodes.onflow.org:9000",
+    "testnet": "access.devnet.nodes.onflow.org:9000"
+  },
+  "accounts": {
+    "emulator-account": {
+      "address": "f8d6e0586b0a20c7",
+      "key": "a7bd8cc4fed69691564e9f9ebe0312c6a79c703a83c75fdeff2c7aa0c752e816"
+    },
+    "testnet-account": {
+      "address": "0xe1e9a92dcadb1d1e",
+      "key": "1571106bababb22aa887f1d6b9d57f503c45a7d316d4ed4ca99b1d27baeb4d4c"
+    }
+  },
+  "deployments": {
+    "testnet": {
+      "testnet-account": [
+        "NonFungibleToken",
+        "FungibleToken",
+        "MetaDataView",
+        "FlowTutorialMint"
+      ]
+    }
+  }
+}

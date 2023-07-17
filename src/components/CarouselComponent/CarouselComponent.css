@@ -1,0 +1,31 @@
+/* CarouselComponent.css */
+.carousel-container {
+  max-width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+
+.carousel-wrapper .carousel.carousel-slider {
+  max-height: 545px;
+}
+
+.carousel .control-dots {
+  padding-left: 11%;
+  padding-right: 10%;
+  text-align: left;
+  display: none;
+}
+
+.carousel .control-dots .dot {
+  width: 1rem;
+  height: 1rem;
+  background: #8e8e8e;
+}
+
+.carousel .control-dots .selected {
+  background: #3fc1be;
+}
+
+.carousel-slide {
+  height: 545px;
+}
