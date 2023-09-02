@@ -6,26 +6,32 @@ const QuizList = () => {
     <>
       <div className="mx-auto w-full h-full">
         <div className="text-left py-5">
-          <div className="text-4xl font-bold">Content Quiz</div>
+          <div className="text-4xl font-bold">Featured Games</div>
         </div>
         <div className="flex flex-col px-5 py-5">
           <Content
             dest="whatisflow"
-            name="What is FLOW?"
-            desc="Check your knowledge about what FLOW is"
-            img="https://blog.kakaocdn.net/dn/b3XWfc/btq84vL2PS6/9vcPD4UYWioGWLA3K0HMk1/img.png"
+            name="PUBG"
+            desc="Player Unknown's Battlegraound is a survival game with up to 100 players"
+            img="https://www.sisajournal-e.com/news/photo/first/201803/img_182092_1.png"
           />
           <Content
             dest="flowwallet"
-            name="FLOW Wallet"
-            desc="Test how much you know about crypto wallet"
-            img="https://www.datocms-assets.com/75149/1675801227-cryptowallet.jpg"
+            name="League of Legends"
+            desc="League of Legeneds is a 5 vs 5 game, where you can enjoy with your friends. Destroy the enemy nexus to win the game"
+            img="https://www.infobae.com/new-resizer/rxHVEte6mUhroD2hSfpeJW9ZEXM=/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/YABJ7CAXOZDVHAXSDRSQQ7NJR4.jpg"
           />
           <Content
-            dest="cadence"
-            name="Cadence Programming Language"
-            desc="Test your knowledge on Cadence"
-            img="https://raw.githubusercontent.com/onflow/cadence/master/cadence_furever.png"
+            dest="CounterStrike"
+            name="Counter Strike"
+            desc="Counter Strike is a 5 vs 5 game, where you can enjoy with your friends. Gun shooting game"
+            img="https://media.steampowered.com/apps/csgo/blog/images/fb_image.png?v=6"
+          />
+          <Content
+            dest="tokenstandard"
+            name="Dungeon Fighter Online"
+            desc="The best MMO game ever!"
+            img="https://cdn1.epicgames.com/offer/b567cb36ae39435792fe40d2e913cd92/EGS_DungeonFighterOnline_NEOPLEInc_S1_2560x1440-2c7394fde0cf6d46650d44d2a0f141e3"
           />
         </div>
       </div>
@@ -50,14 +56,6 @@ const Content = ({ img, name, desc, dest }) => {
         <div className="w-2/3 flex flex-col gap-3 p-1">
           <div className="font-bold text-xl">{name}</div>
           <div className="overflow-auto my-auto">{desc}</div>
-          <button
-            onClick={() => {
-              navigate(`/quiz/${dest}`);
-            }}
-            className="mx-auto mt-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Take QUIZ
-          </button>
         </div>
       </div>
     </div>

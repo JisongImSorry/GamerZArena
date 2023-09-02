@@ -6,38 +6,34 @@ const Main = () => {
     <>
       <CarouselComponent
         images={[
-          "https://assets-global.website-files.com/5f734f4dbd95382f4fdfa0ea/62868269e75da82e059537a4_FlowOGImage%20(1).png",
-          "https://www.coinkolik.com/wp-content/uploads/2022/11/FLOW.jpg",
+          "https://cdn.cloudflare.steamstatic.com/steam/apps/222420/capsule_616x353.jpg?t=1643846921",
+          "https://bnetcmsus-a.akamaihd.net/cms/blog_header/2g/2G4VZH5TIWJF1602720144046.jpg",
+          "https://i.ytimg.com/vi/GKXS_YA9s7E/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBf5464tjEyqWFjaV2Y3nVgTws32Q",
         ]}
       />
       <div className="mx-auto w-full h-full">
         <div className="text-left py-5">
-          <div className="text-4xl font-bold">How to build on FLOW</div>
+          <div className="text-4xl font-bold">Ongoing Contests</div>
         </div>
         <div className="flex flex-col px-5 py-5">
           <Content
             dest="whatisflow"
-            name="What is FLOW?"
-            desc="Learn what is FLOW, and get to know about the key concept of it!"
-            img="https://blog.kakaocdn.net/dn/b3XWfc/btq84vL2PS6/9vcPD4UYWioGWLA3K0HMk1/img.png"
+            name="PUBG Arena"
+            desc="The Best PUBG Game contest on earth! join now to win 10 NEO"
+            img="https://www.sisajournal-e.com/news/photo/first/201803/img_182092_1.png"
           />
           <Content
             dest="flowwallet"
-            name="FLOW Wallet"
-            desc="Learn about crypto wallet, but especially about what is used in FLOW Blockchain."
-            img="https://www.datocms-assets.com/75149/1675801227-cryptowallet.jpg"
+            name="League of Legends"
+            desc="The Best LOL Game contest on earth! join now to win 10 NEO"
+            img="https://www.infobae.com/new-resizer/rxHVEte6mUhroD2hSfpeJW9ZEXM=/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/YABJ7CAXOZDVHAXSDRSQQ7NJR4.jpg"
           />
-          <Content
-            dest="cadence"
-            name="Cadence Programming Language"
-            desc="To BUILD on FLOW, you need to use Cadence Programming language. Get to know how to use it efficiently to build on FLOW."
-            img="https://raw.githubusercontent.com/onflow/cadence/master/cadence_furever.png"
-          />
+
           <Content
             dest="tokenstandard"
-            name="Token Standard"
-            desc="To BUILD on FLOW, you need to use Cadence Programming language. Get to know how to use it efficiently to build on FLOW."
-            img="https://opengraph.githubassets.com/3be230164edc27254870150a0bd9083a28104c35402a1c5b0cd4d82dbe63ce8a/onflow/flow-ft"
+            name="Dungeon Fighter Online"
+            desc="The Best DFO Game contest on earth! join now to win 10 NEO"
+            img="https://cdn1.epicgames.com/offer/b567cb36ae39435792fe40d2e913cd92/EGS_DungeonFighterOnline_NEOPLEInc_S1_2560x1440-2c7394fde0cf6d46650d44d2a0f141e3"
           />
         </div>
       </div>
@@ -62,7 +58,8 @@ const Content = ({ img, name, desc, dest }) => {
           <div className="font-bold text-xl">{name}</div>
           <div className="overflow-auto">{desc}</div>
           <div className="flex flex-row mx-auto gap-5 text-sm items-center">
-            <ClockIcon />5 mins
+            <DollarIcon />
+            15,000 usdt
           </div>
           <button
             onClick={() => {
@@ -70,11 +67,30 @@ const Content = ({ img, name, desc, dest }) => {
             }}
             className="mx-auto mt-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
-            Start Learning
+            View Details
           </button>
         </div>
       </div>
     </div>
+  );
+};
+
+const DollarIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
   );
 };
 

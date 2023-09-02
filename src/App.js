@@ -35,7 +35,7 @@ function App() {
               <Route path="/quiz/:type" element={<Quiz />} />
 
               <Route path="/mypage" element={<MyPage />} />
-              <Route path="/quizlist" element={<QuizList />} />
+              <Route path="/featured" element={<QuizList />} />
               <Route path="/videolist" element={<VideoList />} />
             </Routes>
           </div>

@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="mx-auto w-alco-md pb-10 w-[1200px] mx-auto">
           <div className="flex items-start mt-10 text-alco-gray-400 text-sm"></div>
           <div className="flex items-start text-alco-gray-400 text-sm">
-            Ⓒ Cadence Learner DAO all right reserved.
+            Ⓒ GamerZ ARENA all right reserved.
           </div>
           <div className="flex items-center gap-1.5 ml-113 mt-5 min-w-[591px] h-35">
             <img src="/logo.png" className="w-16 h-16 mr-10" />

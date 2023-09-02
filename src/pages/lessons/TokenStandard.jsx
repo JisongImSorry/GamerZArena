@@ -1,136 +1,235 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Web3 from "web3";
 
 const TokenStandard = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  let abi = [
+    {
+      inputs: [],
+      name: "fund",
+      outputs: [],
+      stateMutability: "payable",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "register",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "winner",
+          type: "address",
+        },
+      ],
+      name: "release",
+      outputs: [],
+      stateMutability: "payable",
+      type: "function",
+    },
+    {
+      inputs: [],
+      stateMutability: "nonpayable",
+      type: "constructor",
+    },
+    {
+      inputs: [],
+      name: "beneficiary",
+      outputs: [
+        {
+          internalType: "address",
+          name: "",
+          type: "address",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "uint256",
+          name: "",
+          type: "uint256",
+        },
+      ],
+      name: "funders",
+      outputs: [
+        {
+          internalType: "address",
+          name: "",
+          type: "address",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "getBalance",
+      outputs: [
+        {
+          internalType: "uint256",
+          name: "",
+          type: "uint256",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "getFunders",
+      outputs: [
+        {
+          internalType: "address[]",
+          name: "",
+          type: "address[]",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "owner",
+      outputs: [
+        {
+          internalType: "address",
+          name: "",
+          type: "address",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "uint256",
+          name: "",
+          type: "uint256",
+        },
+      ],
+      name: "registered",
+      outputs: [
+        {
+          internalType: "address",
+          name: "",
+          type: "address",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+  ];
   return (
     <div>
       <div className="flex flex-col gap-3">
         <img
           className="w-full h-[545px]"
-          src="https://opengraph.githubassets.com/3be230164edc27254870150a0bd9083a28104c35402a1c5b0cd4d82dbe63ce8a/onflow/flow-ft"
+          src="https://cdn1.epicgames.com/offer/b567cb36ae39435792fe40d2e913cd92/EGS_DungeonFighterOnline_NEOPLEInc_S1_2560x1440-2c7394fde0cf6d46650d44d2a0f141e3"
         />
         <div className="text-left relative">
-          <div className="absolute w-32 h-16 right-0">
+          <div className="absolute w-32 h-16 right-0 flex flex-row gap-4">
             <button
               className="bg-blue-500 text-white rounded-md px-4 py-2"
               onClick={() => {
-                navigate(`/quiz/tokenstandard`);
+                try {
+                  const web3 = new Web3(window.ethereum);
+                  let myContract = new web3.eth.Contract(
+                    abi,
+                    "0x31043Bd9a71727329Bc32Ce912f59A2F14285910"
+                  );
+                  let amount = 1;
+                  amount = web3.utils.toWei(amount.toString(), "ether");
+                  console.log(window.web3.currentProvider.selectedAddress);
+                  let response = myContract.methods.fund().send({
+                    from: window.web3.currentProvider.selectedAddress,
+                    value: amount,
+                    gas: 35000000,
+                  });
+                } catch (e) {
+                  console.log(e);
+                }
               }}
             >
-              Take QUIZ
+              Fund Contest
+            </button>
+            <button
+              className="bg-blue-500 text-white rounded-md px-4 py-2"
+              onClick={() => {
+                try {
+                  const web3 = new Web3(window.ethereum);
+                  let myContract = new web3.eth.Contract(
+                    abi,
+                    "0x31043Bd9a71727329Bc32Ce912f59A2F14285910"
+                  );
+
+                  let response = myContract.methods.join().send({
+                    from: window.web3.currentProvider.selectedAddress,
+
+                    gas: 35000000,
+                  });
+                } catch (e) {
+                  console.log(e);
+                }
+              }}
+            >
+              Join Contest
             </button>
           </div>
           <div>
-            <div className="text-4xl font-bold py-5">Token Standards</div>
-            <div className="text-right py-3 text-gray-500">
-              Contents are from :
+            <div className="text-4xl font-bold py-5">
+              Dungeon Fighter Online
+            </div>
+            <div className="text-right py-3 text-gray-500 flex flex-row gap-5">
+              Contest Main Soponsor
               <a
                 className="text-blue-500 underline"
-                href="https://developers.flow.com/concepts/token-standards"
+                href="https://kriptomat.io/cryptocurrencies/flow/what-is-flow/"
               >
-                FLOW Devs
+                Nexon
               </a>
             </div>
             <div>
-              This section is designed to provide you with comprehensive
-              information and guidance on the various token standards available
-              on the Flow blockchain. These standards establish a unified
-              framework for developers, ensuring seamless interoperability and
-              compatibility between tokens, applications, and wallets.
-            </div>
-          </div>
+              <div className="text-2xl font-bold py-5">Contest Description</div>
+              <div>Max Participants: 100</div>
 
-          <div>
-            <div className="text-4xl font-bold py-5">Token Standards</div>
-            <div>
-              In this documentation section, we'll cover the following Flow
-              token standards: Fungible Token Standard (FT): The FT is a
-              specification for creating and managing fungible tokens, which are
-              tokens with equal value and interchangeable. This standard is most
-              commonly used for creating cryptocurrencies and other digital
-              assets with uniform value. Non-Fungible Token Standard (NFT): The
-              NFT is a specification for creating and managing non-fungible
-              tokens, which are unique and indivisible digital assets. This
-              standard is used for creating digital art, in-game items, and
-              other one-of-a-kind digital assets.
-            </div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold py-5">Core Features</div>
-            <a
-              className="ml-auto flex flex-row gap-3 items-center bg-white text-black px-8 py-1 font-bold rounded-[1000px] shadow-md bg-gray-300 bg-opacity-30 border-2 border-gray-400 mx-auto w-60"
-              href={
-                "https://github.com/onflow/flow-ft/blob/master/contracts/FungibleToken.cdc"
-              }
-              target="_blank"
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                className="w-12 h-12"
-              />
-              Watch Code
-            </a>
-          </div>
-          <div className="px-10">
-            <div>
-              <div className="text-4xl font-bold py-5">
-                Getting metadata for the token smart contract via the fields of
-                the contract:
-              </div>
+              <div>Contest rules:</div>
+              <div className="h-12" />
               <div>
-                Balance interface pub var balance: UFix64 The only required
-                field of the Vault type
+                Player Age. In order to be eligible to participate in a
+                Tournament as a player, an individual must have reached 16 years
+                of age or older (i.e., the player has lived for at least 16
+                calendar years) as of the Tournament start date. If a player is
+                16 years of age or older but under the age of majority in his or
+                her country of residence before the start of the Tournament, he
+                or she may still compete in the Tournament if (1) he or she
+                meets the other eligibility criteria in these General Rules and
+                the applicable CompetitionSpecific Rules, and (2) a parent or
+                legal guardian accepts these General Rules and the applicable
+                Competition-Specific Rules on behalf of the player, and consents
+                to the player’s participation in the Tournament using a parental
+                consent form provided by the Tournament Organizer.
               </div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold py-5">
-                Withdrawing a specific amount of tokens amount using the
-                withdraw function of the owner's Vault
-              </div>
+              <div className="h-12" />
               <div>
-                provider interface pub fun withdraw(amount: UFix64):
-                @FungibleToken.Vault Conditions the returned Vault's balance
-                must equal the amount withdrawn The amount withdrawn must be
-                less than or equal to the balance The resulting balance must
-                equal the initial balance - amount Users can give other accounts
-                a reference to their Vault cast as a Provider to allow them to
-                withdraw and send tokens for them. A contract can define any
-                custom logic to govern the amount of tokens that can be
-                withdrawn at a time with a Provider. This can mimic the approve,
-                transferFrom functionality of ERC20. withdraw event Indicates
-                how much was withdrawn and from what account the Vault is stored
-                in. If the Vault is not in account storage when the event is
-                emitted, from will be nil. pub event TokensWithdrawn(amount:
-                UFix64, from: Address?)
+                Multiple Teams. Players may not play for or contract with more
+                than one Team at a time. If a player enters such an arrangement
+                or contract, Tournament Officials reserve the right to bar the
+                player from playing any future matches until the situation has
+                been resolved and the player is in compliance with the
+                requirements in this Section
               </div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold py-5">
-                Depositing a specific amount of tokens from using the deposit
-                function of the recipient's Vault
-              </div>
-              <div>
-                Receiver interface pub fun deposit(from: @FungibleToken.Vault)
-                Conditions from balance must be non-zero The resulting balance
-                must be equal to the initial balance + the balance of from
-                deposit event Indicates how much was deposited and to what
-                account the Vault is stored in. If the Vault is not in account
-                storage when the event is emitted, to will be nil. pub event
-                TokensDeposited(amount: UFix64, to: Address?) Users could create
-                custom Receivers to trigger special code when transfers to them
-                happen, like forwarding the tokens to another account, splitting
-                them up, and much more. It is important that if you are making
-                your own implementation of the fungible token interface that you
-                cast the input to deposit as the type of your token. let vault
-                from as! @ExampleToken.Vault The interface specifies the
-                argument as @FungibleToken.Vault, any resource that satisfies
-                this can be sent to the deposit function. The interface checks
-                that the concrete types match, but you'll still need to cast the
-                Vault before storing it.
-              </div>
+              <div className="h-24" />
             </div>
           </div>
         </div>
